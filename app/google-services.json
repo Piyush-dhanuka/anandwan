@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "928080230145",
+    "project_id": "anandwan-fc0dd",
+    "storage_bucket": "anandwan-fc0dd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928080230145:android:dccc1878580e73b9398d00",
+        "android_client_info": {
+          "package_name": "com.example.anandwan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhKqW9MXZzdvi_AUT9FasYfwVxGB3z2PU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
