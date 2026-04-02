@@ -8,17 +8,18 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarOrders"
+        android:id="@+id/toolbarInventory"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        app:title="Sales Tracker"
+        app:title="My Inventory"
         app:titleTextColor="?attr/colorOnPrimary" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvOrders"
+        android:id="@+id/rvInventory"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp" />
+        android:padding="8dp"
+        android:clipToPadding="false" />
 
 </LinearLayout>

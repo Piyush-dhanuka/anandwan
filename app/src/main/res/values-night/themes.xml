@@ -2,6 +2,23 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Anandwan" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/anand_orange</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/anand_green_light</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="android:statusBarColor">@color/anand_green_dark</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <item name="android:colorBackground">@color/dark_bg</item>
+        <item name="colorSurface">@color/dark_surface</item>
+        <item name="colorOnSurface">@color/dark_on_surface</item>
+        <item name="colorSurfaceVariant">@color/anand_green_light</item>
+        <item name="colorOnSurfaceVariant">@color/dark_on_surface_variant</item>
+
+        <item name="colorOutline">@color/dark_outline</item>
+
+        <item name="android:editTextColor">@color/dark_on_surface</item>
+        <item name="android:textColorHint">@color/dark_on_surface_variant</item>
     </style>
 </resources>

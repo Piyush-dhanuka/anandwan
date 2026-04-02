@@ -2,7 +2,24 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Anandwan" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/anand_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/anand_orange</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="android:statusBarColor">@color/anand_green</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <item name="android:colorBackground">@color/light_bg</item>
+        <item name="colorSurface">@color/light_surface</item>
+        <item name="colorOnSurface">@color/light_on_surface</item>
+        <item name="colorSurfaceVariant">@color/anand_peach_dark</item>
+        <item name="colorOnSurfaceVariant">@color/light_on_surface_variant</item>
+
+        <item name="colorOutline">@color/light_outline</item>
+
+        <item name="android:editTextColor">@color/light_on_surface</item>
+        <item name="android:textColorHint">@color/light_on_surface_variant</item>
     </style>
 
     <style name="Theme.Anandwan" parent="Base.Theme.Anandwan" />

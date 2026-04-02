@@ -15,59 +15,55 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrdersActivity extends AppCompatActivity {
+public class InventoryActivity extends AppCompatActivity {
 
-    private RecyclerView rvOrders;
-    private OrderAdapter adapter;
-    private List<Order> orderList;
+    private RecyclerView rvInventory;
+    private ItemAdapter adapter;
+    private List<Item> itemList;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_orders);
+        setContentView(R.layout.activity_inventory);
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        Toolbar toolbar = findViewById(R.id.toolbarOrders);
+        Toolbar toolbar = findViewById(R.id.toolbarInventory);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        rvOrders = findViewById(R.id.rvOrders);
-        rvOrders.setLayoutManager(new LinearLayoutManager(this));
-        orderList = new ArrayList<>();
-        adapter = new OrderAdapter(orderList);
-        rvOrders.setAdapter(adapter);
+        rvInventory = findViewById(R.id.rvInventory);
+        // Changed to LinearLayoutManager for horizontal row-style list
+        rvInventory.setLayoutManager(new LinearLayoutManager(this));
+        
+        itemList = new ArrayList<>();
+        // Pass true to indicate this is the inventory view
+        adapter = new ItemAdapter(itemList, true);
+        rvInventory.setAdapter(adapter);
 
-        loadOrders();
+        loadInventory();
     }
 
-    private void loadOrders() {
+    private void loadInventory() {
         String sellerId = mAuth.getCurrentUser().getUid();
-        // Removed .orderBy("timestamp") to avoid the requirement for a composite index in Firestore.
-        // Single field filters like whereEqualTo do not require manual index creation.
-        db.collection("orders")
+        db.collection("items")
                 .whereEqualTo("sellerId", sellerId)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
-                    orderList.clear();
+                    itemList.clear();
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                        Order order = document.toObject(Order.class);
-                        orderList.add(order);
+                        Item item = document.toObject(Item.class);
+                        itemList.add(item);
                     }
-                    // Sort locally if needed to avoid index issues
-                    orderList.sort((o1, o2) -> {
-                        if (o1.getTimestamp() == null || o2.getTimestamp() == null) return 0;
-                        return o2.getTimestamp().compareTo(o1.getTimestamp());
-                    });
                     adapter.notifyDataSetChanged();
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(OrdersActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
     }
 

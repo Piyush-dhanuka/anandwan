@@ -8,12 +8,13 @@ public class Item {
     private String imageEncoded; // Base64 String
     private String sellerId;
     private int stock;
+    private String category;
 
     public Item() {
         // Required for Firestore
     }
 
-    public Item(String id, String name, String description, double price, String imageEncoded, String sellerId, int stock) {
+    public Item(String id, String name, String description, double price, String imageEncoded, String sellerId, int stock, String category) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -21,6 +22,7 @@ public class Item {
         this.imageEncoded = imageEncoded;
         this.sellerId = sellerId;
         this.stock = stock;
+        this.category = category;
     }
 
     public String getId() { return id; }
@@ -37,4 +39,6 @@ public class Item {
     public void setSellerId(String sellerId) { this.sellerId = sellerId; }
     public int getStock() { return stock; }
     public void setStock(int stock) { this.stock = stock; }
+    public String getCategory() { return category; }
+    public void setCategory(String category) { this.category = category; }
 }
